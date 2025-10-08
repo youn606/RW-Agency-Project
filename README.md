@@ -5,25 +5,43 @@ Un site web simple et professionnel pour R.W Agency, entreprise lyonnaise spéci
 🚀 Fonctionnalités principales
 
 ✅ Header avec logo, menu et bouton “Demander un devis gratuit”
+
 💬 Section d’accroche avec titre principal et slogan
+
 👥 Présentation de l’entreprise (“À propos”)
+
 🧹 Liste complète des services de nettoyage
+
 ⭐ Arguments “Pourquoi nous choisir”
+
 📍 Zones d’intervention autour de Lyon
+
 📨 Formulaire de devis et contact
+
 ⚖️ Footer avec mentions légales et liens vers réseaux sociaux
+
 📱 Site 100 % responsive (mobile, tablette, desktop)
+
+🎬 Animations légères au scroll et navigation fluide
 
 🛠️ Technologies utilisées
 
 Frontend :
+
 HTML5 / CSS3 / JavaScript
+
 Google Fonts pour la typographie
+
 Font Awesome / Lucide Icons pour les icônes
+
+Backend :
+
+Aucun (site statique, sans base de données)
 
 Outils et déploiement :
 
-Git & GitHub pour le version ing
+Git & GitHub pour le versioning
+
 Déploiement possible sur Netlify ou GitHub Pages
 
 Utilisation
