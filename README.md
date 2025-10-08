@@ -2,6 +2,7 @@
 
 Un site web simple et professionnel pour R.W Agency, entreprise lyonnaise spécialisée dans le nettoyage de fin de chantier et de rénovation, permettant aux visiteurs de découvrir les services, les avantages et de contacter l’agence pour un devis.
 
+
 🚀 Fonctionnalités principales
 
 ✅ Header avec logo, menu et bouton “Demander un devis gratuit”
@@ -24,6 +25,7 @@ Un site web simple et professionnel pour R.W Agency, entreprise lyonnaise spéci
 
 🎬 Animations légères au scroll et navigation fluide
 
+
 🛠️ Technologies utilisées
 
 Frontend :
@@ -38,15 +40,9 @@ Backend :
 
 Aucun (site statique, sans base de données)
 
-Outils et déploiement :
-
-Git & GitHub pour le versioning
-
-Déploiement possible sur Netlify ou GitHub Pages
 
 Utilisation
 
-Télécharger ou cloner le projet :
 git clone https://github.com/youn606/RW-Agency-Project.git
 
 Ouvrir le dossier :
@@ -54,5 +50,3 @@ cd RWagency
 
 Lancer le site :
 Ouvrir index.html dans le navigateur
-ou
-Utiliser “Live Server” dans VS Code
