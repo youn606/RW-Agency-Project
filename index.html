@@ -1,49 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Accueil</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>R.W Agency</title>
 </head>
 
 <body>
-    <header>
-        <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
-            <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
-                <div class="container-fluid"> <!-- container-fluid pour occuper toute la largeur -->
-                    <a class="navbar-brand fw-bold" href="#">R.W Agency</a>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">R.W Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse"
+                aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#advantages">Avantages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#zones">Zones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#devis">Devis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a href="#devis" class="btn btn-cta ms-3">Demander un devis gratuit</a>
+            </div>
+        </div>
+    </nav>
 
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav align-items-center">
-                            <li class="nav-item"><a class="nav-link active" href="#hero">Accueil</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#advantages">Avantages</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#zones">Zones</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#devis">Devis</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                        <a href="#devis" class="btn btn-primary ms-3">Demander un devis gratuit</a>
-                    </div>
-                </div>
-            </nav>
-    </header>
+    <section id="hero">
+        <div class="container text-center">
+            <h1>R.W Agency — Nettoyage de fin de chantier à Lyon</h1>
+            <p class="subtitle">L’exigence du propre avant la remise des clés.</p>
+        </div>
+    </section>
 
-    <main>
+    <main class="content-wrap">
+        <div class="site-grid">
+
+            <article id="about" class="box about">
+                <h3>Qui sommes-nous ?</h3>
+                <div class="small-divider"></div>
+                <p><strong>R.W Agency</strong> est une société lyonnaise spécialisée dans le nettoyage de fin de
+                    chantier et de rénovation.
+                    Nous accompagnons les professionnels du bâtiment, promoteurs immobiliers et particuliers dans la
+                    dernière étape de leurs travaux : la remise en état complète des lieux avant livraison.</p>
+            </article>
+
+            <section id="services" class="box services">
+                <h3>Nos prestations de nettoyage de fin de chantier</h3>
+                <div class="small-divider"></div>
+                <p>Nous intervenons sur tous types de chantiers, du simple rafraîchissement à la construction neuve,
+                    pour rendre vos locaux propres, sains et présentables.</p>
+                <ul class="service-list">
+                    <li>• Dépoussiérage complet des surfaces, murs, sols, plinthes et plafonds</li>
+                    <li>• Nettoyage des vitres, encadrements et baies vitrées</li>
+                    <li>• Enlèvement des résidus de peinture, colle, ciment ou plâtre</li>
+                    <li>• Aspiration et lavage en profondeur de tous types de sols</li>
+                    <li>• Désinfection des sanitaires et cuisines</li>
+                </ul>
+            </section>
+
+            <section id="advantages" class="box arguments">
+                <h3>Pourquoi choisir R.W Agency ?</h3>
+                <div class="small-divider"></div>
+                <p>Notre priorité : votre satisfaction. Nous mettons notre savoir-faire et notre rigueur au service de
+                    vos chantiers.</p>
+                <ul>
+                    <li>✔️ <strong>Spécialisation</strong> : nous faisons uniquement du nettoyage de fin de chantier —
+                        expertise ciblée.</li>
+                    <li>✔️ <strong>Professionnalisme</strong> : équipe formée, ponctuelle, matériel professionnel.</li>
+                    <li>✔️ <strong>Flexibilité</strong> : interventions rapides, même en urgence, 7j/7.</li>
+                    <li>✔️ <strong>Résultat garanti</strong> : chantier livré impeccable, prêt pour la réception.</li>
+                    <li>✔️ <strong>Devis gratuit</strong> et sans engagement.</li>
+                </ul>
+            </section>
+
+            <aside id="zones" class="box zones">
+                <h3>Nos zones d’intervention</h3>
+                <div class="small-divider"></div>
+                <ul>
+                    <li>Lyon (1er au 9e)</li>
+                    <li>Villeurbanne</li>
+                    <li>Écully, Tassin-la-Demi-Lune, Dardilly</li>
+                    <li>Charbonnières-les-Bains, Sainte-Foy-lès-Lyon</li>
+                    <li>Bron, Vaulx-en-Velin, Vénissieux</li>
+                </ul>
+                <p class="highlight">👉 Intervention rapide sous 48h dans tout le Grand Lyon.</p>
+            </aside>
+
+        </div>
+
+        <div id="devis" class="devis">
+            <h3>Demandez votre devis gratuit</h3>
+            <div class="small-divider"></div>
+            <p>Un chantier terminé mérite une finition parfaite. Contactez-nous dès aujourd’hui pour recevoir votre
+                devis personnalisé sous 24h.</p>
+            <a href="#contact" class="btn btn-cta">Recevoir mon devis maintenant</a>
+        </div>
+
+        <div id="contact" class="contact">
+            <h3>Contactez-nous</h3>
+            <div class="small-divider"></div>
+            <p>Parlez-nous de votre chantier : surface, nature des travaux, délais souhaités.</p>
+            <p><strong>R.W Agency</strong></p>
+            <p>📍 Basée à Lyon</p>
+            <p>📧 <a href="mailto:r.wagency@hotmail.com">r.wagency@hotmail.com</a></p>
+            <p>📱 07 82 46 87 56</p>
+            <p>🕐 Interventions 7j/7 sur devis</p>
+            <a href="mailto:r.wagency@hotmail.com" class="btn btn-outline-primary mt-2">Nous écrire</a>
+        </div>
+
+        <footer class="site-footer">
+            Mentions légales — Copyright © 2025 R.W Agency
+        </footer>
 
     </main>
 
-    <footer>
-
-    </footer>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

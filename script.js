@@ -1,20 +1,14 @@
- const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  const links = document.querySelectorAll('.nav-link, .btn');
-  links.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      if (this.hash !== '') {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
         e.preventDefault();
-        const target = document.querySelector(this.hash);
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
