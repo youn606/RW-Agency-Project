@@ -37,32 +37,39 @@ a {
 }
 
 #hero {
-  min-height: 40vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #e9f3ff 100%);
-  padding: 6rem 1.5rem;
+  background-image: linear-gradient(rgba(13, 71, 161, 0.4), rgba(13, 71, 161, 0.4)),
+    url("/assets/images/jon-tyson-_o0aonObEt8-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 8rem 1.5rem;
+  color: #fff;
 }
+
 #hero h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.6rem;
-  color: var(--blue);
+  font-size: 3rem;
+  color: #fff;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 5px rgba(13, 71, 161, 0.15);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   line-height: 1.2;
 }
+
 #hero .subtitle {
   font-size: 1.3rem;
-  color: #444;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  color: #f3f3f3;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .content-wrap {
-  max-width: 1500px; 
-  margin: 5rem auto;
-  padding: 0 3rem; 
+  max-width: 1500px;
+  margin: 6rem auto;
+  padding: 0 3rem;
 }
 
 .site-grid {
@@ -73,46 +80,59 @@ a {
     "about services"
     "arguments services"
     "arguments zones";
-  gap: 40px; 
+  gap: 50px;
 }
 
 .box {
   border: 2px solid var(--border);
   background: #fff;
-  padding: 50px; 
+  padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border-radius: 14px;
+  position: relative;
+  overflow: hidden;
 }
 
-.about {
-  grid-area: about;
-  background: var(--blue-light);
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.30; /* plus visible */
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+.box:hover::before {
+  opacity: 0.35;
 }
 
-.services {
-  grid-area: services;
-  min-height: 520px; 
+.about::before {
+  background-image: url("/assets/images/gil-ribeiro-3hO8igCybds-unsplash.jpg");
+}
+.services::before {
+  background-image: url("/assets/images/jon-tyson-_FstoR-_Ixw-unsplash.jpg");
+}
+.arguments::before {
+  background-image: url("images/arguments-bg.jpg");
+}
+.zones::before {
+  background-image: url("images/zones-bg.jpg");
 }
 
-.arguments {
-  grid-area: arguments;
-  background: var(--blue-light);
-  min-height: 500px;
-}
-
-.zones {
-  grid-area: zones;
-  min-height: 300px;
+.box * {
+  position: relative;
+  z-index: 1;
 }
 
 .box h3 {
   margin: 0 0 1rem;
   color: var(--blue);
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem; 
+  font-size: 1.9rem;
 }
 .box p {
   margin: 0;
@@ -150,15 +170,14 @@ a {
 .devis,
 .contact {
   border: 2px solid var(--border);
-  padding: 60px; 
+  padding: 60px;
   text-align: center;
   background: #fff;
   margin-top: 40px;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-.devis {
-  background: #fff;
+  position: relative;
+  overflow: hidden;
 }
 .contact {
   background: var(--blue-light);
@@ -168,14 +187,16 @@ a {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 2.2rem;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(13, 110, 253, 0.2);
   font-weight: 600;
   font-size: 1.05rem;
+  transition: all 0.3s ease;
 }
 .btn-cta:hover {
   background: #0b5ed7;
+  transform: translateY(-2px);
 }
 
 .small-divider {
@@ -195,6 +216,30 @@ a {
   font-size: 0.95rem;
 }
 
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 1400px) {
+  .content-wrap {
+    max-width: 1600px;
+    padding: 0 5rem;
+  }
+  .box {
+    padding: 80px;
+    font-size: 1.2rem;
+  }
+  .box h3 {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 991px) {
   .site-grid {
     grid-template-columns: 1fr;
@@ -205,10 +250,14 @@ a {
       "zones";
   }
   .box {
-    padding: 28px;
+    padding: 30px;
   }
   .content-wrap {
     padding: 0 1.5rem;
+  }
+  #hero {
+    min-height: 50vh;
+    background-attachment: scroll;
   }
   #hero h1 {
     font-size: 2.2rem;
