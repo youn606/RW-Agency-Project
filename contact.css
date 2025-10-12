@@ -1,0 +1,30 @@
+#hero-contact {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 1.5rem;
+  transition: background-image 0.6s ease-in-out;
+}
+
+#hero-contact h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  background: #fff;
+  color: var(--muted);
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #e4e4e4;
+}

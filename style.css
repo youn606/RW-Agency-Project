@@ -36,6 +36,72 @@ a {
   color: #fff !important;
 }
 
+body.dark-mode {
+  background: #121212;
+  color: #e4e4e4;
+}
+
+body.dark-mode .navbar {
+  background: #1e1e1e !important;
+}
+
+body.dark-mode .navbar .nav-link {
+  color: #e4e4e4 !important;
+}
+
+body.dark-mode .navbar .navbar-brand {
+  color: #fff !important;
+}
+
+body.dark-mode .btn-cta {
+  background: #0d6efd;
+  color: white;
+}
+
+body.dark-mode .btn-outline-secondary {
+  border-color: #e4e4e4;
+  color: #e4e4e4;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+  background: #e4e4e4;
+  color: #121212;
+}
+
+body.dark-mode .box,
+body.dark-mode .devis,
+body.dark-mode .contact {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f1f1f1;
+  border-color: #333;
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode h1,
+body.dark-mode h3 {
+  color: #0d6efd;
+}
+
+body.dark-mode .site-footer {
+  background: #1a1a1a;
+  color: #ccc;
+  border-top-color: #333;
+}
+
+body.dark-mode #hero {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)
+  ), url("/assets/images/jon-tyson-_o0aonObEt8-unsplash.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#darkToggle {
+  transition: all 0.3s ease;
+}
+
 #hero {
   min-height: 60vh;
   display: flex;
@@ -67,20 +133,21 @@ a {
 }
 
 .content-wrap {
-  max-width: 1500px;
-  margin: 6rem auto;
-  padding: 0 3rem;
+  max-width: 1800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
 
 .site-grid {
   display: grid;
-  grid-template-columns: 48% 52%;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "about services"
     "arguments services"
     "arguments zones";
-  gap: 50px;
+  gap: 2rem;
+  width: 100%;
 }
 
 .box {
@@ -117,10 +184,10 @@ a {
   background-image: url("/assets/images/jon-tyson-_FstoR-_Ixw-unsplash.jpg");
 }
 .arguments::before {
-  background-image: url("images/arguments-bg.jpg");
+  background-image: url("/assets/images/maxim-tolchinskiy-B9Wf319_-ZQ-unsplash.jpg");
 }
 .zones::before {
-  background-image: url("images/zones-bg.jpg");
+  background-image: url("/assets/images/oliver-hale-oTvU7Zmteic-unsplash.jpg");
 }
 
 .box * {
@@ -228,7 +295,7 @@ a {
 
 @media (min-width: 1400px) {
   .content-wrap {
-    max-width: 1600px;
+    max-width: 90vw;
     padding: 0 5rem;
   }
   .box {

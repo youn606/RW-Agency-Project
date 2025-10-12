@@ -3,7 +3,24 @@ window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
   navbar.classList.toggle('scrolled', scrollY > 50);
 });
+const darkToggle = document.getElementById('darkToggle');
 
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.body.classList.add('dark-mode');
+  darkToggle.textContent = '☀️';
+}
+
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  
+  if (document.body.classList.contains('dark-mode')) {
+    darkToggle.textContent = '☀️';
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    darkToggle.textContent = '🌙';
+    localStorage.setItem('darkMode', 'disabled');
+  }
+});
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const target = document.querySelector(link.getAttribute('href'));
