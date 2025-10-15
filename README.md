@@ -38,7 +38,7 @@ Font Awesome / Lucide Icons pour les icônes
 
 Backend :
 
-Aucun (site statique, sans base de données)
+EmailJS
 
 
 Utilisation
