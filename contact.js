@@ -1,66 +1,72 @@
-// --- Sélection des éléments ---
 const navbar = document.getElementById("navbar");
 const darkToggle = document.getElementById("darkToggle");
 const heroSection = document.getElementById("hero-contact");
-const heroTitle = document.querySelector("#hero-contact h1");
+const heroTitle = document.querySelector("#hero-contact .hero-text h1");
 
-// --- Images de fond uniquement pour le hero ---
 const heroBackgrounds = {
-  light: "/assets/images/bg-office.jpg",
-  dark: "/assets/images/bg-cleaning-dark.jpg",
+  light: "/assets/images/jon-tyson-_o0aonObEt8-unsplash.jpg", 
+  dark:  "/assets/images/jon-tyson-_o0aonObEt8-unsplash.jpg", 
 };
 
-// --- Fonction : mise à jour du fond et de la couleur du titre ---
-function updateHeroBackground() {
-  const isDark = document.body.classList.contains("dark-mode");
+function fileExists(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
 
-  if (isDark) {
-    heroSection.style.backgroundImage = `
-      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url('${heroBackgrounds.dark}')
-    `;
-    heroTitle.style.color = "#fff";
+async function updateHeroBackground(){
+  if (!heroSection) return;
+
+  const isDark = document.body.classList.contains("dark-mode");
+  const imageUrl = isDark ? heroBackgrounds.dark : heroBackgrounds.light;
+
+  const hasImage = await fileExists(imageUrl);
+
+  const overlayColor = isDark ? "rgba(0,0,0,0.35)" : "rgba(255,255,255,0.12)";
+
+  let overlayEl = heroSection.querySelector(".overlay");
+  if (!overlayEl) {
+    overlayEl = document.createElement("div");
+    overlayEl.className = "overlay";
+    heroSection.appendChild(overlayEl);
+  }
+  overlayEl.style.background = overlayColor;
+
+  if (hasImage) {
+    heroSection.style.backgroundImage = `url("${imageUrl}")`;
   } else {
-    heroSection.style.backgroundImage = `
-      linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
-      url('${heroBackgrounds.light}')
-    `;
-    heroTitle.style.color = "#0d47a1"; // Bleu foncé R.W Agency
+    console.warn("Hero image introuvable :", imageUrl);
   }
 }
 
-// --- Activation du dark mode depuis localStorage ---
 if (localStorage.getItem("darkMode") === "enabled") {
   document.body.classList.add("dark-mode");
-  darkToggle.textContent = "☀️";
+  if (darkToggle) darkToggle.textContent = "☀️";
 } else {
-  darkToggle.textContent = "🌙";
+  if (darkToggle) darkToggle.textContent = "🌙";
 }
 
-// --- Applique l'image du hero au chargement ---
 updateHeroBackground();
 
-// --- Bascule dark/light instantanée ---
-darkToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+if (darkToggle) {
+  darkToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const enabled = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", enabled ? "enabled" : "disabled");
+    darkToggle.textContent = enabled ? "☀️" : "🌙";
+    updateHeroBackground();
+  });
+}
 
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("darkMode", "enabled");
-    darkToggle.textContent = "☀️";
-  } else {
-    localStorage.setItem("darkMode", "disabled");
-    darkToggle.textContent = "🌙";
-  }
+if (navbar) {
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+}
 
-  updateHeroBackground();
-});
-
-// --- Navbar : effet au scroll ---
-window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-// --- Apparition fluide des sections ---
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -73,29 +79,29 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll("section, .form-container, footer").forEach((el) => {
+document.querySelectorAll("section, .box, footer").forEach((el) => {
   el.classList.add("hidden");
   observer.observe(el);
 });
 
-// --- Formulaires (contact + devis) ---
-document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = document.getElementById("contactForm");
-  const quoteForm = document.getElementById("quoteForm");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+["contactForm", "quoteForm"].forEach((id) => {
+  const form = document.getElementById(id);
+  if (form) {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("✅ Merci ! Votre message a bien été envoyé à R.W Agency.");
-      contactForm.reset();
-    });
-  }
-
-  if (quoteForm) {
-    quoteForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("✅ Votre demande de devis a bien été transmise. Réponse sous 24h !");
-      quoteForm.reset();
+      alert("✅ Merci ! Votre demande a bien été envoyée.");
+      form.reset();
     });
   }
 });
+
+function sendMail(){
+  let parms = { 
+    name : document.getElementById("name").value,
+    email : document.getElementById("email").value,
+    title : document.getElementById("sujet").value,
+    message : document.getElementById("message").value,
+  }
+  emailjs.send("service_fds5nvo","template_i63a3yn", parms)
+
+}

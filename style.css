@@ -178,16 +178,16 @@ body.dark-mode #hero {
 }
 
 .about::before {
-  background-image: url("/assets/images/gil-ribeiro-3hO8igCybds-unsplash.jpg");
+  background-image: url("");
 }
 .services::before {
-  background-image: url("/assets/images/jon-tyson-_FstoR-_Ixw-unsplash.jpg");
+  background-image: url("");
 }
 .arguments::before {
-  background-image: url("/assets/images/maxim-tolchinskiy-B9Wf319_-ZQ-unsplash.jpg");
+  background-image: url("");
 }
 .zones::before {
-  background-image: url("/assets/images/oliver-hale-oTvU7Zmteic-unsplash.jpg");
+  background-image: url("");
 }
 
 .box * {
